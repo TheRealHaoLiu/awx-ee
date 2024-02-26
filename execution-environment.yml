@@ -56,6 +56,8 @@ dependencies:
 additional_build_steps:
   append_base:
     - RUN $PYCMD -m pip install -U pip
+  prepend_builder:
+    - RUN $PKGMGR install -y cmake gcc gcc-c++ make openssl-devel # needed for building uamqp for azure.azcollection on arm64
   append_final:
     - COPY --from=quay.io/ansible/receptor:devel /usr/bin/receptor /usr/bin/receptor
     - RUN mkdir -p /var/run/receptor
