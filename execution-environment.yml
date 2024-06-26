@@ -60,6 +60,7 @@ dependencies:
     pyyaml
     six
     receptorctl
+    pyVmomi==8.0.2 # pin to 8.0.2 due to https://github.com/vmware/pyvmomi/issues/1079
 additional_build_steps:
   append_base:
     - RUN $PYCMD -m pip install -U pip
